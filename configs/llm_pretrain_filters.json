@@ -1,0 +1,19 @@
+[
+    {
+        "class": "RepetitionFractions",
+        "config": {
+            "ngrams": [2, 3, 4, 5, 13, 14]
+        }
+    },
+    {
+        "class": "NGramIncidenceScores",
+        "config": {
+            "word_sets": {
+                "C4_COMMON_WORDS": {
+                    "wordlist": ["the", "be", "to", "of", "and", "that", "have", "with"],
+                    "description": "Some common English words used to filter C4 dataset"
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,7 @@
+lang1: "eng_Latn"
+lang2: "rus_Cyrl"
+split_sentences: True
+# models: [["conv.wmt14.en-fr", "pytorch_hub"], ["transformer.wmt14.en-fr", "pytorch_hub"]]
+# models: [["facebook/m2m100_418M", "hf"], ["transformer.wmt14.en-fr", "pytorch_hub"]]
+models: [["facebook/nllb-200-distilled-1.3B", "hf"], ["facebook/wmt19-en-ru", "hf"]]
+

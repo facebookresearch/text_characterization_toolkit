@@ -1,0 +1,16 @@
+[
+    {
+        "class": "WordProperties",
+        "config": {
+			"word_property_configs": {
+                "Genderness": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/winobias.csv",
+                    "word_column": "word",
+                    "property_column": "genderness",
+                    "description": "Genderness, more male (<50) or more female (>50)"
+				}
+			}
+		}
+    }
+]

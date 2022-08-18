@@ -1,0 +1,195 @@
+[
+    {
+        "class": "TokenAttributeRatios"
+    },
+    {
+        "class": "NGramIncidenceScores",
+        "config": {
+            "word_sets": {
+                "WRDPRP1s": {
+                    "word_list": ["i", "me", "myself", "mine", "my"],
+                    "description": "First person singular pronouns"
+                },
+                "WRDPRP1p": {
+                    "word_list": ["we", "us", "ourself", "ourselves", "ours", "our"],
+                    "description": "First person plural pronouns"
+                },
+                "WRDPRP2": {
+                    "word_list": ["you", "yourself", "yourselves", "your", "yours"],
+                    "description": "Second person pronouns"
+                },
+                "WRDPRP3s": {
+                    "word_list": ["he", "him", "himself", "his", "she",  "her", "herself", "hers"],
+                    "description": "Third person singular pronouns"
+                },
+                "WRDPRP3p": {
+                    "word_list": ["they", "them", "themselves", "themself", "theirs", "their"],
+                    "description": "Third person plural pronouns"
+                },
+                "CNCCaus": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_causal.txt",
+                    "description": "Causal connectives"
+                },
+                "CNCLogic": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_logical.txt",
+                    "description": "Logical connectives"
+                },
+                "CNCTemp": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_temporal.txt",
+                    "description": "Temporal connectives"
+                },
+                "CNCAdd": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_additive.txt",
+                    "description": "Additive connectives"
+                },
+                "CNCPos": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_positive.txt",
+                    "description": "Positive connectives"
+                },
+                "CNCNeg": {
+                    "word_list_file": "<DATA_DIR>/connectives/all_negative.txt",
+                    "description": "Negative connectives"
+                }
+            }
+        }
+    },
+    {
+        "class": "WordProperties",
+        "config": {
+            "word_property_configs": {
+                "WRDNOUN": {
+                    "type": "pos_incidence",
+                    "pos_filter": "NOUN,PROPN",
+                    "description": "Nouns"
+                },
+                "WRDVERB": {
+                    "type": "pos_incidence",
+                    "pos_filter": "VERB",
+                    "description": "Verbs"
+                },
+                "WRDADJ": {
+                    "type": "pos_incidence",
+                    "pos_filter": "ADJ",
+                    "description": "Adjectives"
+                },
+                "WRDADV": {
+                    "type": "pos_incidence",
+                    "pos_filter": "ADV",
+                    "description": "Adverbs"
+                },
+                "WRDFRQc": {
+                    "type": "lookup",
+                    "json": "<DATA_DIR>/en_lexeme_prob.json",
+                    "pos_filter":"NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Word frequency, content words"
+                },
+                "WRDFRQa": {
+                    "type": "lookup",
+                    "json": "<DATA_DIR>/en_lexeme_prob.json",
+                    "value_coalesce_method": "max",
+                    "description": "Word frequency, all words"
+                },
+                "WRDFRQmc": {
+                    "type": "lookup",
+                    "json": "<DATA_DIR>/en_lexeme_prob.json",
+                    "value_coalesce_method": "max",
+                    "pos_filter":"NOUN,PROPN,VERB,ADJ,ADV",
+                    "aggregation_method": "min",
+                    "description": "Word frequency"
+                },
+                "WRDFAMc": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/mrc2.csv",
+                    "word_column": "word",
+                    "property_column": "fam",
+                    "pos_filter": "NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Familiarity, content words only"
+                },
+                "WRDCNCc": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/mrc2.csv",
+                    "word_column": "word",
+                    "property_column": "conc",
+                    "pos_filter": "NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Concreteness, content words only"
+                },
+                "WRDIMGc": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/mrc2.csv",
+                    "word_column": "word",
+                    "property_column": "imag",
+                    "pos_filter": "NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Imagability, content words only"
+                },
+                "WRDMEAc": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/mrc2.csv",
+                    "word_column": "word",
+                    "property_column": "meanc",
+                    "pos_filter": "NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Meaningfulness"
+                },
+                "WRDPOLc": {
+                    "type": "wordnet",
+                    "property": "polysemy",
+                    "pos_filter": "NOUN,PROPN,VERB,ADJ,ADV",
+                    "description": "Polysemy"
+                },
+                "WRDHYPn": {
+                    "type": "wordnet",
+                    "property": "hypernymy",
+                    "pos_filter": "NOUN",
+                    "description": "Hypernymy (nouns)"
+                },
+                "WRDHYPv": {
+                    "type": "wordnet",
+                    "property": "hypernymy",
+                    "pos_filter": "VERB",
+                    "description": "Hypernymy (verbs)"
+                },
+                "WRDHYPnv": {
+                    "type": "wordnet",
+                    "property": "hypernymy",
+                    "pos_filter": "NOUN,VERB",
+                    "description": "Hypernymy (verbs and nouns)"
+                },
+                "AOA": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/AoA_51715_words.csv",
+                    "word_column": "Word",
+                    "property_column": "AoA_Kup_lem",
+                    "description": "Age of Acqusition (ADD REFERENCE MANUALLY))"
+                },
+                "AOA_MAX": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/AoA_51715_words.csv",
+                    "word_column": "Word",
+                    "property_column": "AoA_Kup_lem",
+                    "aggregation_method": "max",
+                    "description": "Age of Acqusition (ADD REFERENCE MANUALLY)"
+                },
+                "CONCRETENESS": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/13428_2013_403_MOESM1_ESM.csv",
+                    "word_column": "Word",
+                    "property_column": "Conc.M",
+                    "description": "Concreteness"
+                },
+                "PREVALENCE": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/WordprevalencesSupplementaryfilefirstsubmission.csv",
+                    "word_column": "Word",
+                    "property_column": "Prevalence",
+                    "description": "Prevalence (ADD REFERENCE MANUALLY)"
+                },
+                "PREVALENCE_MIN": {
+                    "type": "lookup",
+                    "csv": "<DATA_DIR>/WordprevalencesSupplementaryfilefirstsubmission.csv",
+                    "word_column": "Word",
+                    "property_column": "Prevalence",
+                    "description": "Prevalence (ADD REFERENCE MANUALLY)"
+                }
+            }
+        }
+    }
+]

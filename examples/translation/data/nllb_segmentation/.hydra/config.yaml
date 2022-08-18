@@ -1,0 +1,8 @@
+lang1: eng_Latn
+lang2: rus_Cyrl
+split_sentences: true
+models:
+- - facebook/nllb-200-distilled-1.3B
+  - hf
+- - facebook/wmt19-en-ru
+  - hf

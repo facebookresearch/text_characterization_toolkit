@@ -1,0 +1,17 @@
+[
+    {
+        "class": "DescriptiveIndices",
+        "config": {
+            "hyphenator_dict": "/Users/danielsimig/dc_files/hyph_en_US.dic"
+        }
+    },
+    {
+        "class": "LexicalDiversity"
+    },
+    {
+        "class": "SyntacticComplexity"
+    },
+    {
+        "class": "Readability"
+    }
+]
